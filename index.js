@@ -1807,8 +1807,7 @@ module.request = function(context, verb, options, entity, callback) {
     if (callback) {
       if (err ||
           res.statusCode >= 300 ||
-          (_.isObject(body) && body.Fault && body.Fault.Error && body.Fault.Error.length) ||
-          (_.isString(body) && !_.isEmpty(body) && body.indexOf('<') === 0)) {
+          (_.isObject(body) && body.Fault && body.Fault.Error && body.Fault.Error.length)) {
         callback(err || body, body)
       } else {
         callback(null, body)
